@@ -1,0 +1,23 @@
+{
+  "name": "PL_SQLServer_to_ADLS_Full_Load",
+  "properties": {
+    "activities": [
+      {
+        "name": "Get_Table_Metadata",
+        "type": "Lookup"
+      },
+      {
+        "name": "ForEach_Source_Table",
+        "type": "ForEach"
+      },
+      {
+        "name": "Copy_To_Bronze",
+        "type": "Copy"
+      },
+      {
+        "name": "Validate_Load",
+        "type": "DatabricksNotebook"
+      }
+    ]
+  }
+}
