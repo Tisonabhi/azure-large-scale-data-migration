@@ -6,9 +6,7 @@
 ![Databricks](https://img.shields.io/badge/Databricks-PySpark-red)
 ![Delta Lake](https://img.shields.io/badge/Delta%20Lake-Lakehouse-00A36C)
 
-> **Recruiter-facing portfolio project:** a production-inspired design for migrating relational data into an Azure lakehouse using ADF-style orchestration, ADLS Gen2, Azure Databricks, PySpark and Delta Lake.
 
-**Portfolio disclaimer:** This repository is a representative implementation using synthetic data. It contains no proprietary employer code, production data, credentials or confidential information.
 
 ## Why this project
 
@@ -166,13 +164,6 @@ For production-scale workloads, the design emphasizes:
 
 See [`docs/performance.md`](docs/performance.md).
 
-## Demo data vs professional experience
-
-The repository contains **100 customers, 30 products and 1,000 synthetic transactions** so it remains lightweight and reproducible.
-
-It should **not** be represented as having processed 11+ TB.
-
-If you have professional experience migrating 11+ TB, describe that experience separately in your application and use this repository as public evidence of the engineering approach and patterns.
 
 ## CI/CD
 
@@ -184,13 +175,6 @@ GitHub Actions runs on pushes and pull requests and:
 
 The workflow is intentionally credential-free and does not connect to an Azure subscription.
 
-## Security
-
-Never commit Azure secrets, connection strings, SAS tokens, passwords or proprietary data. For a real Azure deployment, use Managed Identity, Key Vault and least-privilege RBAC.
-
-## Interview walkthrough
-
-See [`docs/interview-walkthrough.md`](docs/interview-walkthrough.md) for a concise explanation and likely interview questions.
 
 ## Author
 
