@@ -1,0 +1,40 @@
+{
+  "name": "PL_SQLServer_to_ADLS_Incremental",
+  "properties": {
+    "parameters": {
+      "tableName": {
+        "type": "String"
+      },
+      "watermarkColumn": {
+        "type": "String"
+      }
+    },
+    "activities": [
+      {
+        "name": "Lookup_Last_Watermark",
+        "type": "Lookup",
+        "description": "Read the last successfully committed watermark from control metadata."
+      },
+      {
+        "name": "Lookup_New_Watermark",
+        "type": "Lookup",
+        "description": "Read the maximum source watermark for the current run."
+      },
+      {
+        "name": "Copy_Incremental_Data",
+        "type": "Copy",
+        "description": "Copy rows where old watermark < updated_at <= new watermark into Bronze."
+      },
+      {
+        "name": "Run_Databricks_Transformations",
+        "type": "DatabricksNotebook",
+        "description": "Execute Bronze-to-Silver-to-Gold processing."
+      },
+      {
+        "name": "Commit_Watermark",
+        "type": "SqlServerStoredProcedure",
+        "description": "Update control metadata only after successful processing."
+      }
+    ]
+  }
+}
